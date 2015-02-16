@@ -37,4 +37,4 @@ def perms_sat_prop_w_complement(N, prop):
         E[n] = En
 
 
-    return D
+    return D, E
