@@ -1,4 +1,5 @@
-load("create_dict.sage")
+load("../permutation-sets/create_dict.sage")
+load("../permutation-sets/dict_properties.sage")
 load("../pattern-avoidance/mesh_patterns.sage")
 
 '''
@@ -20,9 +21,9 @@ Example 2
 
 # Change this to run a specific example
 ex  = 1
-Ng  = 5
+Ng  = 7
 Nb  = 4
-log = False
+log = True
 
 if ex == 1:
 
@@ -44,3 +45,5 @@ corresponding function. We now create the dictionaries
 '''
 
 D, E = perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = log)
+
+enum_perms(D)
