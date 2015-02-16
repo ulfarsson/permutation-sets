@@ -5,8 +5,22 @@ load("../pattern-avoidance/mesh_patterns.sage")
 '''
 This file contains permutation sets defined in terms of avoidance of mesh
 patterns.
+
+ex     : Example number
+Ng     : The largest permutations that satisfy the property
+Nb     : The largest permutations that do not satisfy the property
+report : Set to True to get status messages
+cpus   : The number of cores to use
+         Set to 0 if you want Sage to determine the number of available cores
 '''
 
+ex     = 1
+Ng     = 7
+Nb     = 4
+report = True
+cpus   = 0 # NOT IMPLEMENTED
+
+# ------------------------------------------------------------------------------
 '''
 Example 1
 Avoiders of (123,{(0,0),(1,1),(2,2),(3,3)}) and (123,{(0,3),(1,2),(2,1),(3,0)})
@@ -18,12 +32,6 @@ Example 2
 
 ---
 '''
-
-# Change this to run a specific example
-ex  = 1
-Ng  = 7
-Nb  = 4
-log = True
 
 if ex == 1:
 
@@ -44,6 +52,6 @@ At this point a specific example has been chosen and prop has been given the
 corresponding function. We now create the dictionaries
 '''
 
-D, E = perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = log)
+A, B = perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = report)
 
-enum_perms(D)
+enum_perms(A)
