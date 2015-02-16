@@ -19,8 +19,10 @@ Example 2
 '''
 
 # Change this to run a specific example
-ex = 1
-N  = 5
+ex  = 1
+Ng  = 5
+Nb  = 4
+log = False
 
 if ex == 1:
 
@@ -38,7 +40,7 @@ if ex == 2:
 
 '''
 At this point a specific example has been chosen and prop has been given the
-corresponding function. We now create the dictionary
+corresponding function. We now create the dictionaries
 '''
 
-D = perms_sat_prop(N, prop)
+D, E = perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = log)
