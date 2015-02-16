@@ -80,6 +80,8 @@ def perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = False):
             if prop(perm):
                 Dn.append(perm)
 
+        D[n] = Dn
+
         if verb:
             print 'Done with length %s' %n
 
@@ -92,6 +94,7 @@ def perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = False):
             if not prop(perm):
                 En.append(perm)
 
+        E[n] = En
         if verb:
             print 'Done with length %s' %n
 
