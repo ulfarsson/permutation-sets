@@ -14,15 +14,16 @@ cpus   : The number of cores to use
          Set to 1 if you want to call the single core version
 '''
 
-ex     = 12
+ex     = 5
 Ng     = 7
 Nb     = 4
 report = True
 cpus   = 1 # NOTHING ELSE IMPLEMENTED
 
-load('../permutation-sets/examples/examples_mesh.sage')
-load('../permutation-sets/examples/examples_Schubert.sage')
-load('../permutation-sets/examples/examples_various.sage')
+# load('../permutation-sets/examples/examples_mesh.sage')
+# load('../permutation-sets/examples/examples_Schubert.sage')
+# load('../permutation-sets/examples/examples_various.sage')
+load('../permutation-sets/examples/examples_sorting.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
 
 '''
@@ -31,7 +32,19 @@ corresponding function. We now create the dictionaries
 '''
 
 if cpus == 1:
-    A, B = perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = report)
+
+    # If there is a function prop that returns True or False and can be used to
+    # identify the permutations we want
+    if not no_prop:
+        A, B = perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = report)
+
+    # If we are looking at the image of some map Sn -> Sn
+    elif calc_image:
+
+        A, B = perms_in_image_different_sizes(Ng, Nb, func, verb = report)
+
+
+
 else:
     print 'Parallel version has not been implemented'
 
