@@ -14,7 +14,7 @@ cpus   : The number of cores to use
          Set to 1 if you want to call the single core version
 '''
 
-ex     = 3
+ex     = 12
 Ng     = 7
 Nb     = 4
 report = True
@@ -22,6 +22,7 @@ cpus   = 1 # NOTHING ELSE IMPLEMENTED
 
 load('../permutation-sets/examples/examples_mesh.sage')
 load('../permutation-sets/examples/examples_Schubert.sage')
+load('../permutation-sets/examples/examples_various.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
 
 '''
