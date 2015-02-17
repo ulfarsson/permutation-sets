@@ -168,3 +168,68 @@ def perms_in_image_different_sizes(Ng, Nb, func, verb = report):
             print 'Done with length %s' %n
 
     return D, E
+
+'''
+--------------------------------------------------------------------------------
+Next we have functions that create dictionaries based on an an already existing
+(or easily created) set of permutations
+--------------------------------------------------------------------------------
+'''
+
+def perms_to_dicts(Ng, func, verb = report):
+
+    D, E = {}, {}
+
+    for n in range(1, Ng+1):
+        Dn, En = func(n), []
+        L = sorted(map(lambda x : x.rank(), Dn))
+        s = 0
+        for ell in L:
+            En + [Permutations(n)[i] for i in range(s,ell)]
+        D[n], E[n] = Dn, En
+
+        if verb:
+            print 'Done with length %s' %n
+
+    return D, E
+
+def perms_to_dicts_different_sizes(Ng, Nb, func, verb = report):
+
+    D, E = {}, {}
+
+    # Putting into both dictionaries
+    for n in range(1, Ng+1):
+        Dn, En = func(n), []
+        L = sorted(map(lambda x : x.rank(), Dn))
+        s = 0
+        for ell in L:
+            En + [Permutations(n)[i] for i in range(s,ell)]
+        D[n], E[n] = Dn, En
+
+        if verb:
+            print 'Done with length %s' %n
+
+    # Note that only one of the for-loops below will be non-empty
+
+    # Filling in the rest of D
+    for n in range(Nb+1, Ng+1):
+
+        D[n] = func(n)
+
+        if verb:
+            print 'Done with length %s' %n
+
+    # Filling in the rest of E
+    for n in range(Ng+1, Nb+1):
+
+        En = []
+        L = sorted(map(lambda x : x.rank(), func(n)))
+        s = 0
+        for ell in L:
+            En + [Permutations(n)[i] for i in range(s,ell)]
+        E[n] = En
+
+        if verb:
+            print 'Done with length %s' %n
+
+    return D, E
