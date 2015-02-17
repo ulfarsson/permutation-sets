@@ -24,7 +24,8 @@ cpus   = 1 # NOTHING ELSE IMPLEMENTED
 # load('../permutation-sets/examples/examples_Schubert.sage')
 # load('../permutation-sets/examples/examples_various.sage')
 # load('../permutation-sets/examples/examples_sorting.sage')
-load('../permutation-sets/examples/examples_fixed_points.sage')
+# load('../permutation-sets/examples/examples_fixed_points.sage')
+load('../permutation-sets/examples/examples_tableaux.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
 
 '''
