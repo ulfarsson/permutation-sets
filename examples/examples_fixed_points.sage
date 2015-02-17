@@ -1,6 +1,3 @@
-load("../pattern-avoidance/classical_patterns.sage")
-load("../permutation-sets/properties/sorting.sage")
-
 '''
 This file contains permutation sets related to fixed points
 
