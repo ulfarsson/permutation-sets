@@ -20,8 +20,8 @@ Nb     = 4
 report = True
 cpus   = 1 # NOTHING ELSE IMPLEMENTED
 
-# load('../permutation-sets/examples_mesh.sage')
-load('../permutation-sets/examples_occurrence_graphs.sage')
+load('../permutation-sets/examples/examples_mesh.sage')
+# load('../permutation-sets/examples/examples_occurrence_graphs.sage')
 
 '''
 At this point a specific example has been chosen and prop has been given the
