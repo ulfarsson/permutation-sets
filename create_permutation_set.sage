@@ -14,7 +14,7 @@ cpus   : The number of cores to use
          Set to 1 if you want to call the single core version
 '''
 
-ex     = 1
+ex     = 5
 Ng     = 7
 Nb     = 4
 report = True
@@ -25,7 +25,8 @@ cpus   = 1 # NOTHING ELSE IMPLEMENTED
 # load('../permutation-sets/examples/examples_various.sage')
 # load('../permutation-sets/examples/examples_sorting.sage')
 # load('../permutation-sets/examples/examples_fixed_points.sage')
-load('../permutation-sets/examples/examples_tableaux.sage')
+# load('../permutation-sets/examples/examples_tableaux.sage')
+load('../permutation-sets/examples/examples_groups.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
 
 '''
@@ -44,6 +45,11 @@ if cpus == 1:
     elif calc_image:
 
         A, B = perms_in_image_different_sizes(Ng, Nb, func, verb = report)
+
+    # If we are working with some easily creadet set, and also want the
+    # complement
+    elif perms_exist:
+        A, B = perms_to_dicts(Ng, func, verb = report)
 
 
 
