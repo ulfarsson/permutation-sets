@@ -27,10 +27,6 @@ Example 4: <= 3
 ---
 '''
 
-# These variables should not be changed manually
-no_prop    = False
-calc_image = False
-
 if ex == 1:
 	print "Nr. of fixed points == 0"
 	prop = lambda x : x.number_of_fixed_points() == 0

@@ -33,10 +33,6 @@ Example 5: The alternating group
 ---
 '''
 
-# These variables should not be changed manually
-no_prop    = False
-calc_image = False
-
 if ex == 1:
     print "Involutions (order <= 2)"
     no_prop     = True

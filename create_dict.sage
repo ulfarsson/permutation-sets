@@ -109,7 +109,7 @@ Sn -> Sn
 --------------------------------------------------------------------------------
 '''
 
-def perms_in_image(Ng, func, verb = report):
+def perms_in_image(Ng, func, verb=False):
 
     D, E = {}, {}
 
@@ -127,7 +127,7 @@ def perms_in_image(Ng, func, verb = report):
 
     return D, E
 
-def perms_in_image_different_sizes(Ng, Nb, func, verb = report):
+def perms_in_image_different_sizes(Ng, Nb, func, verb=False):
 
     D, E = {}, {}
 
@@ -176,7 +176,7 @@ Next we have functions that create dictionaries based on an an already existing
 --------------------------------------------------------------------------------
 '''
 
-def perms_to_dicts(Ng, func, verb = report):
+def perms_to_dicts(Ng, func, verb=False):
 
     D, E = {}, {}
 
@@ -193,7 +193,7 @@ def perms_to_dicts(Ng, func, verb = report):
 
     return D, E
 
-def perms_to_dicts_different_sizes(Ng, Nb, func, verb = report):
+def perms_to_dicts_different_sizes(Ng, Nb, func, verb=False):
 
     D, E = {}, {}
 

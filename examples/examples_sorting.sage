@@ -36,10 +36,6 @@ Example 6: Stack-sorted permutations
 ---
 '''
 
-# These variables should not be changed manually
-no_prop    = False
-calc_image = False
-
 if ex == 1:
     print "1-stack-sortables"
     prop = lambda x : is_sorted(stack_sort(x))

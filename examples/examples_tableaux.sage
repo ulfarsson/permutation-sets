@@ -27,10 +27,6 @@ Example 3: No (3,3)
 ---
 '''
 
-# These variables should not be changed manually
-no_prop    = False
-calc_image = False
-
 if ex == 1:
     print "No (2,2)-shape in the tableau"
     prop = lambda x : not tableau_contains_shape(x.left_tableau(), [2,2])

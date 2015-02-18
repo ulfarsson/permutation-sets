@@ -14,11 +14,16 @@ cpus   : The number of cores to use
          Set to 1 if you want to call the single core version
 '''
 
-ex     = 5
+ex     = 3
 Ng     = 7
-Nb     = 4
+Nb     = 5
 report = True
 cpus   = 1 # NOTHING ELSE IMPLEMENTED
+
+# These variables should not be changed manually
+no_prop     = False
+calc_image  = False
+perms_exist = False
 
 # load('../permutation-sets/examples/examples_mesh.sage')
 # load('../permutation-sets/examples/examples_Schubert.sage')
@@ -26,8 +31,12 @@ cpus   = 1 # NOTHING ELSE IMPLEMENTED
 # load('../permutation-sets/examples/examples_sorting.sage')
 # load('../permutation-sets/examples/examples_fixed_points.sage')
 # load('../permutation-sets/examples/examples_tableaux.sage')
-load('../permutation-sets/examples/examples_groups.sage')
+# load('../permutation-sets/examples/examples_groups.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
+
+# Loading from scratch.sage. Set cpus = -1 to shortcut the if below
+load('../permutation-sets/scratch.sage')
+cpus = -1
 
 '''
 At this point a specific example has been chosen and prop has been given the
