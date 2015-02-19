@@ -35,11 +35,18 @@ Example 5: The alternating group
 
 if ex == 1:
     print "Involutions (order <= 2)"
-    no_prop     = True
-    perms_exist = True
 
-    def func(n):
-        return map(lambda T : robinson_schensted_knuth_inverse(T,T, 'permutation'), StandardTableaux(n))
+    def tmp(x):
+        tab = RSK(x)
+        return tab[0] == tab[1]
+
+    prop = tmp
+
+    # no_prop     = True
+    # perms_exist = True
+
+    # def func(n):
+    #     return map(lambda T : robinson_schensted_knuth_inverse(T,T, 'permutation'), StandardTableaux(n))
 
 if ex == 2:
     print "No 2 in the cycle type"

@@ -198,7 +198,7 @@ def perms_to_dicts_different_sizes(Ng, Nb, func, verb=False):
     D, E = {}, {}
 
     # Putting into both dictionaries
-    for n in range(1, Ng+1):
+    for n in range(1, min(Ng, Nb)+1):
         Dn, En = func(n), []
         L = sorted(map(lambda x : x.rank(), Dn))
         s = 0

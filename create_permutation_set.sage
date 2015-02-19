@@ -16,7 +16,7 @@ cpus   : The number of cores to use
 
 ex     = 3
 Ng     = 7
-Nb     = 5
+Nb     = 8
 report = True
 cpus   = 1 # NOTHING ELSE IMPLEMENTED
 
@@ -31,12 +31,8 @@ perms_exist = False
 # load('../permutation-sets/examples/examples_sorting.sage')
 # load('../permutation-sets/examples/examples_fixed_points.sage')
 # load('../permutation-sets/examples/examples_tableaux.sage')
-# load('../permutation-sets/examples/examples_groups.sage')
+load('../permutation-sets/examples/examples_groups.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
-
-# Loading from scratch.sage. Set cpus = -1 to shortcut the if below
-load('../permutation-sets/scratch.sage')
-cpus = -1
 
 '''
 At this point a specific example has been chosen and prop has been given the
@@ -58,9 +54,7 @@ if cpus == 1:
     # If we are working with some easily creadet set, and also want the
     # complement
     elif perms_exist:
-        A, B = perms_to_dicts(Ng, func, verb = report)
-
-
+        A, B = perms_to_dicts_different_sizes(Ng, Nb, func, verb = report)
 
 else:
     print 'Parallel version has not been implemented'
