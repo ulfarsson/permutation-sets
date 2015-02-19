@@ -26,20 +26,27 @@ Example 4: <= 3
 
 ---
 '''
+def get_example(ex):
 
-if ex == 1:
-	print "Nr. of fixed points == 0"
-	prop = lambda x : x.number_of_fixed_points() == 0
+    if ex == 1:
+        print "Nr. of fixed points == 0"
+        prop = lambda x : x.number_of_fixed_points() == 0
+        return prop, 0
 
-if ex == 2:
-	print "Nr. of fixed points <= 1"
-	prop = lambda x : x.number_of_fixed_points() <= 1
+    elif ex == 2:
+        print "Nr. of fixed points <= 1"
+        prop = lambda x : x.number_of_fixed_points() <= 1
+        return prop, 0
 
-if ex == 3:
-	print "Nr. of fixed points <= 2"
-	prop = lambda x : x.number_of_fixed_points() <= 2
+    elif ex == 3:
+        print "Nr. of fixed points <= 2"
+        prop = lambda x : x.number_of_fixed_points() <= 2
+        return prop, 0
 
-if ex == 4:
-	print "Nr. of fixed points <= 3"
-	prop = lambda x : x.number_of_fixed_points() <= 3
+    elif ex == 4:
+        print "Nr. of fixed points <= 3"
+        prop = lambda x : x.number_of_fixed_points() <= 3
+        return prop, 0
 
+    else:
+        return lambda x : False, -1

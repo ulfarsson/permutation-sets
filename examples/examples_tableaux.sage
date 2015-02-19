@@ -27,14 +27,23 @@ Example 3: No (3,3)
 ---
 '''
 
-if ex == 1:
-    print "No (2,2)-shape in the tableau"
-    prop = lambda x : not tableau_contains_shape(x.left_tableau(), [2,2])
+def get_example(ex):
 
-if ex == 2:
-    print "No (3,2)-shape in the tableau"
-    prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,2])
+    if ex == 1:
+        print "No (2,2)-shape in the tableau"
+        prop = lambda x : not tableau_contains_shape(x.left_tableau(), [2,2])
+        return prop, 0
 
-if ex == 3:
-    print "No (3,3)-shape in the tableau"
-    prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,3])
+
+    elif ex == 2:
+        print "No (3,2)-shape in the tableau"
+        prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,2])
+        return prop, 0
+
+    elif ex == 3:
+        print "No (3,3)-shape in the tableau"
+        prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,3])
+        return prop, 0
+
+    else:
+        return lambda x : False, -1

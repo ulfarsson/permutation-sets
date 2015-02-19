@@ -51,50 +51,67 @@ Example 11: Number of inversions = number of descents
 ---
 '''
 
-if ex == 1:
-    print "Simple permutations"
-    prop = lambda x : is_simple(x)
+def get_example(ex):
 
-if ex == 2:
-    print "Clumped permutations (maximum number of clumps <= 3 - can be changed)"
-    prop = lambda x : max_number_of_clumps(x) <= 3
+    if ex == 1:
+        print "Simple permutations"
+        prop = lambda x : is_simple(x)
+        return prop, 0
 
-if ex == 3:
-    print "Simsun permutations"
-    prop = lambda x : avoids_mpat(x, ([3,2,1], [(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)]))
+    elif ex == 2:
+        print "Clumped permutations (maximum number of clumps <= 3 - can be changed)"
+        prop = lambda x : max_number_of_clumps(x) <= 3
+        return prop, 0
 
-if ex == 4:
-    print "Balanced permutations"
-    prop = lambda x : is_balanced(x)
+    elif ex == 3:
+        print "Simsun permutations"
+        prop = lambda x : avoids_mpat(x, ([3,2,1], [(1,0), (1,1), (1,2), (2,0), (2,1), (2,2)]))
+        return prop, 0
 
-if ex == 5:
-    print "Menage permutations"
-    prop = lambda x : is_menage(x)
+    elif ex == 4:
+        print "Balanced permutations"
+        prop = lambda x : is_balanced(x)
+        return prop, 0
 
-if ex == 6:
-    print "Kendall-Mann permutations"
-    prop = lambda x : is_Kendall_Mann(x)
+    elif ex == 5:
+        print "Menage permutations"
+        prop = lambda x : is_menage(x)
+        return prop, 0
 
-if ex == 7:
-    print "Number of recoils <= 1"
-    prop = lambda x : x.number_of_recoils() <= 1
+    elif ex == 6:
+        print "Kendall-Mann permutations"
+        prop = lambda x : is_Kendall_Mann(x)
+        return prop, 0
 
-if ex == 8:
-    print "Number of saliances (right-to-left minima) <= 1"
-    prop = lambda x : x.number_of_saliances() <= 1
+    elif ex == 7:
+        print "Number of recoils <= 1"
+        prop = lambda x : x.number_of_recoils() <= 1
+        return prop, 0
 
-if ex == 9:
-    print "swapping number <= 1"
-    prop = lambda x : swapping_number(x) <= 1
+    elif ex == 8:
+        print "Number of saliances (right-to-left minima) <= 1"
+        prop = lambda x : x.number_of_saliances() <= 1
+        return prop, 0
 
-if ex == 10:
-    print "swapping number <= 2"
-    prop = lambda x : swapping_number(x) <= 2
+    elif ex == 9:
+        print "swapping number <= 1"
+        prop = lambda x : swapping_number(x) <= 1
+        return prop, 0
 
-if ex == 11:
-    print "number of inversions = number of descents"
-    prop = lambda x : x.number_of_descents() == x.number_of_inversions()
+    elif ex == 10:
+        print "swapping number <= 2"
+        prop = lambda x : swapping_number(x) <= 2
+        return prop, 0
 
-if ex == 12:
-    print "Fair permutations"
-    prop = lambda x : is_fair(x)
+    elif ex == 11:
+        print "number of inversions = number of descents"
+        prop = lambda x : x.number_of_descents() == x.number_of_inversions()
+        return prop, 0
+
+    elif ex == 12:
+        print "Fair permutations"
+        prop = lambda x : is_fair(x)
+        return prop, 0
+
+    else:
+        return lambda x : False, -1

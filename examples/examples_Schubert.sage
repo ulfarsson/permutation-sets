@@ -33,14 +33,22 @@ Gorenstein Schubert varieties
 ---
 '''
 
-if ex == 1:
+def get_example(ex):
 
-    prop = lambda x : avoids_clpatt(x, [1,3,2,4]) and avoids_clpatt(x, [2,1,4,3])
+    if ex == 1:
 
-if ex == 2:
+        prop = lambda x : avoids_clpatt(x, [1,3,2,4]) and avoids_clpatt(x, [2,1,4,3])
+        return prop, 0
 
-    prop = lambda x : avoids_clpatt(x, [1,3,2,4]) and avoids_mpat(x, ([2,1,4,3], [(2,2)]))
+    elif ex == 2:
 
-if ex == 3:
+        prop = lambda x : avoids_clpatt(x, [1,3,2,4]) and avoids_mpat(x, ([2,1,4,3], [(2,2)]))
+        return prop, 0
 
-    prop = lambda x : is_Gorenstein(x)
+    elif ex == 3:
+
+        prop = lambda x : is_Gorenstein(x)
+        return prop, 0
+
+    else:
+        return lambda x : False, -1

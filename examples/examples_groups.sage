@@ -33,48 +33,53 @@ Example 5: The alternating group
 ---
 '''
 
-if ex == 1:
-    print "Involutions (order <= 2)"
+def get_example(ex):
 
-    def tmp(x):
-        tab = RSK(x)
-        return tab[0] == tab[1]
+    if ex == 1:
+        print "Involutions (order <= 2)"
 
-    prop = tmp
+        def tmp(x):
+            tab = RSK(x)
+            return tab[0] == tab[1]
 
-    # no_prop     = True
-    # perms_exist = True
+        prop = tmp
+        return prop, 0
 
-    # def func(n):
-    #     return map(lambda T : robinson_schensted_knuth_inverse(T,T, 'permutation'), StandardTableaux(n))
+        # def func(n):
+        #     return map(lambda T : robinson_schensted_knuth_inverse(T,T, 'permutation'), StandardTableaux(n))
+        # return func, 2
 
-if ex == 2:
-    print "No 2 in the cycle type"
-    prop = lambda x : not 2 in x.cycle_type()
+    elif ex == 2:
+        print "No 2 in the cycle type"
+        prop = lambda x : not 2 in x.cycle_type()
+        return prop, 0
 
-if ex == 3:
-    print "Single cycles"
-    prop = lambda x : len(x.cycle_type()) == 1
+    elif ex == 3:
+        print "Single cycles"
+        prop = lambda x : len(x.cycle_type()) == 1
+        return prop, 0
 
-if ex == 4:
-    print "Dihedral group"
-    no_prop     = True
-    perms_exist = True
+    elif ex == 4:
+        print "Dihedral group"
 
-    def func(n):
-        if n == 0:
-            return Permutations(0)
-        if n == 1:
-            return Permutations(1)
-        if n == 2:
-            return Permutations(2)
+        def func(n):
+            if n == 0:
+                return Permutations(0)
+            if n == 1:
+                return Permutations(1)
+            if n == 2:
+                return Permutations(2)
 
-        return map(Permutation, DihedralGroup(n))
+            return map(Permutation, DihedralGroup(n))
+        return func, 2
 
-if ex == 5:
-    print "Alternating group"
-    no_prop     = True
-    perms_exist = True
+    elif ex == 5:
+        print "Alternating group"
 
-    def func(n):
-        return map(Permutation, AlternatingGroup(n))
+        def func(n):
+            return map(Permutation, AlternatingGroup(n))
+
+        return func, 2
+
+    else:
+        return lambda x : False, -1

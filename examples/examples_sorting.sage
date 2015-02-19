@@ -36,30 +36,37 @@ Example 6: Stack-sorted permutations
 ---
 '''
 
-if ex == 1:
-    print "1-stack-sortables"
-    prop = lambda x : is_sorted(stack_sort(x))
+def get_example(ex):
 
-if ex == 2:
-    print "West-2-stack-sortables"
-    prop = lambda x : is_sorted(stack_sort(stack_sort(x)))
+    if ex == 1:
+        print "1-stack-sortables"
+        prop = lambda x : is_sorted(stack_sort(x))
+        return prop, 0
 
-if ex == 3:
-    print "West-3-stack-sortables"
-    prop = lambda x : is_sorted(stack_sort(stack_sort(stack_sort(x))))
+    elif ex == 2:
+        print "West-2-stack-sortables"
+        prop = lambda x : is_sorted(stack_sort(stack_sort(x)))
+        return prop, 0
 
-if ex == 4:
-    print "B^{-1}(Av(1243))"
-    prop = lambda x : avoids_clpatt(bubble_sort(x), [1,2,4,3])
+    elif ex == 3:
+        print "West-3-stack-sortables"
+        prop = lambda x : is_sorted(stack_sort(stack_sort(stack_sort(x))))
+        return prop, 0
 
-if ex == 5:
-    print "Bubble-sorted permutations"
-    no_prop    = True
-    calc_image = True
-    func = bubble_sort
+    elif ex == 4:
+        print "B^{-1}(Av(1243))"
+        prop = lambda x : avoids_clpatt(bubble_sort(x), [1,2,4,3])
+        return prop, 0
 
-if ex == 6:
-    print "Stack-sorted permutations"
-    no_prop    = True
-    calc_image = True
-    func = stack_sort
+    elif ex == 5:
+        print "Bubble-sorted permutations"
+        func = bubble_sort
+        return func, 1
+
+    elif ex == 6:
+        print "Stack-sorted permutations"
+        func = stack_sort
+        return func, 1
+
+    else:
+        return lambda x : False, -1

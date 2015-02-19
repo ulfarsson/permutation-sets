@@ -31,16 +31,23 @@ discover a concise description in terms of mesh patterns
 ---
 '''
 
-if ex == 1:
+def get_example(ex):
 
-    mp1 = ([1,2,3],[(0,0),(1,1),(2,2),(3,3)])
-    mp2 = ([1,2,3],[(0,3),(1,2),(2,1),(3,0)])
+    if ex == 1:
 
-    prop = lambda x : avoids_mpats(x,[mp1,mp2])
+        mp1 = ([1,2,3],[(0,0),(1,1),(2,2),(3,3)])
+        mp2 = ([1,2,3],[(0,3),(1,2),(2,1),(3,0)])
 
-if ex == 2:
+        prop = lambda x : avoids_mpats(x,[mp1,mp2])
+        return prop, 0
 
-    mp1 = ([1,2],[(0,0),(1,1),(2,2)])
-    mp2 = ([1,2],[(0,2),(1,1),(2,0)])
+    elif ex == 2:
 
-    prop = lambda x : avoids_mpats(x,[mp1,mp2])
+        mp1 = ([1,2],[(0,0),(1,1),(2,2)])
+        mp2 = ([1,2],[(0,2),(1,1),(2,0)])
+
+        prop = lambda x : avoids_mpats(x,[mp1,mp2])
+        return prop, 0
+
+    else:
+        return lambda x : False, -1

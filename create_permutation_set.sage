@@ -14,9 +14,9 @@ cpus   : The number of cores to use
          Set to 1 if you want to call the single core version
 '''
 
-ex     = 3
-Ng     = 7
-Nb     = 8
+ex     = 1
+Ng     = 6
+Nb     = 5
 report = True
 cpus   = 1 # NOTHING ELSE IMPLEMENTED
 
@@ -25,13 +25,13 @@ no_prop     = False
 calc_image  = False
 perms_exist = False
 
-# load('../permutation-sets/examples/examples_mesh.sage')
+load('../permutation-sets/examples/examples_mesh.sage')
 # load('../permutation-sets/examples/examples_Schubert.sage')
 # load('../permutation-sets/examples/examples_various.sage')
 # load('../permutation-sets/examples/examples_sorting.sage')
 # load('../permutation-sets/examples/examples_fixed_points.sage')
 # load('../permutation-sets/examples/examples_tableaux.sage')
-load('../permutation-sets/examples/examples_groups.sage')
+# load('../permutation-sets/examples/examples_groups.sage')
 # load('../permutation-sets/examples/examples_occurrence_graphs.sage')
 
 '''
