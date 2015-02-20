@@ -1,5 +1,6 @@
 load("../pattern-avoidance/mesh_patterns.sage")
 load("../permutation-sets/properties/various.sage")
+load("../permutation-sets/properties/Costa.sage")
 
 '''
 This file contains various permutation sets
@@ -47,6 +48,18 @@ Example 10: Swapping number <= 2
 
 ---
 Example 11: Number of inversions = number of descents
+
+---
+
+Example 12: Fair permutations
+
+---
+
+Example 13: PDD permutations
+
+---
+
+Example 15: Costa permutations
 
 ---
 '''
@@ -111,6 +124,16 @@ def get_example(ex):
     elif ex == 12:
         print "Fair permutations"
         prop = lambda x : is_fair(x)
+        return prop, 0
+
+    elif ex == 13:
+        print "PDD permutations"
+        prop = lambda x : is_PDD(x)
+        return prop, 0
+
+    elif ex == 14:
+        print "Costa permutations"
+        prop = lambda x : is_Costa(x)
         return prop, 0
 
     else:
