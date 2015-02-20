@@ -171,7 +171,7 @@ def perms_in_image_different_sizes(Ng, Nb, func, verb=False):
 
 '''
 --------------------------------------------------------------------------------
-Next we have functions that create dictionaries based on an an already existing
+Next we have functions that create dictionaries based on an already existing
 (or easily created) set of permutations
 --------------------------------------------------------------------------------
 '''
@@ -183,9 +183,11 @@ def perms_to_dicts(Ng, func, verb=False):
     for n in range(1, Ng+1):
         Dn, En = func(n), []
         L = sorted(map(lambda x : x.rank(), Dn))
+
         s = 0
-        for ell in L:
-            En + [Permutations(n)[i] for i in range(s,ell)]
+        for ell in L+[factorial(n)]:
+            En.extend([Permutations(n)[i] for i in range(s,ell)])
+            s = ell+1
         D[n], E[n] = Dn, En
 
         if verb:
@@ -201,9 +203,11 @@ def perms_to_dicts_different_sizes(Ng, Nb, func, verb=False):
     for n in range(1, min(Ng, Nb)+1):
         Dn, En = func(n), []
         L = sorted(map(lambda x : x.rank(), Dn))
+
         s = 0
-        for ell in L:
-            En + [Permutations(n)[i] for i in range(s,ell)]
+        for ell in L+[factorial(n)]:
+            En.extend([Permutations(n)[i] for i in range(s,ell)])
+            s = ell+1
         D[n], E[n] = Dn, En
 
         if verb:
@@ -224,9 +228,65 @@ def perms_to_dicts_different_sizes(Ng, Nb, func, verb=False):
 
         En = []
         L = sorted(map(lambda x : x.rank(), func(n)))
+
         s = 0
-        for ell in L:
-            En + [Permutations(n)[i] for i in range(s,ell)]
+        for ell in L+[factorial(n)]:
+            En.extend([Permutations(n)[i] for i in range(s,ell)])
+            s = ell+1
+        E[n] = En
+
+        if verb:
+            print 'Done with length %s' %n
+
+    return D, E
+
+'''
+--------------------------------------------------------------------------------
+Next we have functions that create dictionaries based on a precomputed output
+--------------------------------------------------------------------------------
+'''
+
+def load_precomputed(Ng, Nb, prop, verb=False):
+
+    load('../permutation-sets/examples/precomputed/'+prop+'.sage')
+
+    D, E = {}, {}
+
+    # Putting into both dictionaries
+    for n in range(1, min(Ng, Nb)+1):
+
+        Dn, En = eval(prop)[n], []
+        L = sorted(map(lambda x : Permutation(x).rank(), Dn))
+
+        s = 0
+        for ell in L+[factorial(n)]:
+            En.extend([Permutations(n)[i] for i in range(s,ell)])
+            s = ell+1
+        D[n], E[n] = Dn, En
+
+        if verb:
+            print 'Done with length %s' %n
+
+    # # Note that only one of the for-loops below will be non-empty
+
+    # Filling in the rest of D
+    for n in range(Nb+1, Ng+1):
+
+        D[n] = eval(prop)[n]
+
+        if verb:
+            print 'Done with length %s' %n
+
+    # Filling in the rest of E
+    for n in range(Ng+1, Nb+1):
+
+        En = []
+        L = sorted(map(lambda x : Permutation(x).rank(), eval(prop)[n]))
+
+        s = 0
+        for ell in L+[factorial(n)]:
+            En.extend([Permutations(n)[i] for i in range(s,ell)])
+            s = ell+1
         E[n] = En
 
         if verb:
