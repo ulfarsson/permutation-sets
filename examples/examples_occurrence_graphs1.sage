@@ -124,5 +124,217 @@ def get_example(ex):
 
         return prop, 0
 
+    if ex == 12:
+
+    	print '''\nExample 12: The occurrence graph with respect to p = 123 is a tree\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_tree()
+        return prop, 0
+
+    elif ex == 13:
+
+    	print '''\nExample 13: The occurrence graph with respect to p = 123 is a forest\n'''
+
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_forest()
+        return prop, 0
+
+    elif ex == 14:
+
+    	print '''\nExample 14: The occurrence graph with respect to p = 123 is bipartite\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_bipartite()
+        return prop, 0
+
+    elif ex == 15:
+
+    	print '''\nExample 15: The occurrence graph with respect to p = 123 is 3-colorable\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).chromatic_number() <= 3
+        return prop, 0
+
+    elif ex == 16:
+
+    	print '''\nExample 16: The occurrence graph with respect to p = 123 is 4-colorable\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).chromatic_number() <= 4
+        return prop, 0
+
+    elif ex == 17:
+
+    	print '''\nExample 17: The occurrence graph with respect to p = 123 is planar\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_planar()
+        return prop, 0
+
+    elif ex == 18:
+
+    	print '''\nExample 18: The occurrence graph with respect to p = 123 is chordal\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_chordal()
+        return prop, 0
+
+    elif ex == 19:
+
+    	print '''\nExample 19: The occurrence graph with respect to p = 123 is a clique\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_clique()
+        return prop, 0
+
+    elif ex == 20:
+
+    	print '''\nExample 20: The occurrence graph with respect to p = 123 is connected\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_connected()
+        return prop, 0
+
+    elif ex == 21:
+
+    	print '''\nExample 21: The occurrence graph with respect to p = 123 is perfect\n'''
+
+        p = [1,2,3]
+
+        prop = lambda x : occurrence_graph1(x,p).is_perfect()
+        return prop, 0
+
+    elif ex == 22:
+
+    	print '''\nExample 22: The occurrence graph with respect to p = 123 only has vertices of degree 0,1,2\n'''
+
+        p = [1,2,3]
+
+        def prop(x):
+        	ocd = occurrence_graph1(x,p).degree_sequence()
+        	for d in ocd:
+        		if d > 2:
+        			return False
+        	return True
+
+        return prop, 0
+
+    if ex == 23:
+
+    	print '''\nExample 23: The occurrence graph with respect to p = 132 is a tree\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_tree()
+        return prop, 0
+
+    elif ex == 24:
+
+    	print '''\nExample 24: The occurrence graph with respect to p = 132 is a forest\n'''
+
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_forest()
+        return prop, 0
+
+    elif ex == 25:
+
+    	print '''\nExample 25: The occurrence graph with respect to p = 132 is bipartite\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_bipartite()
+        return prop, 0
+
+    elif ex == 26:
+
+    	print '''\nExample 26: The occurrence graph with respect to p = 132 is 3-colorable\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).chromatic_number() <= 3
+        return prop, 0
+
+    elif ex == 27:
+
+    	print '''\nExample 27: The occurrence graph with respect to p = 132 is 4-colorable\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).chromatic_number() <= 4
+        return prop, 0
+
+    elif ex == 28:
+
+    	print '''\nExample 28: The occurrence graph with respect to p = 132 is planar\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_planar()
+        return prop, 0
+
+    elif ex == 29:
+
+    	print '''\nExample 29: The occurrence graph with respect to p = 132 is chordal\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_chordal()
+        return prop, 0
+
+    elif ex == 30:
+
+    	print '''\nExample 130: The occurrence graph with respect to p = 132 is a clique\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_clique()
+        return prop, 0
+
+    elif ex == 31:
+
+    	print '''\nExample 31: The occurrence graph with respect to p = 132 is connected\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_connected()
+        return prop, 0
+
+    elif ex == 32:
+
+    	print '''\nExample 32: The occurrence graph with respect to p = 132 is perfect\n'''
+
+        p = [1,3,2]
+
+        prop = lambda x : occurrence_graph1(x,p).is_perfect()
+        return prop, 0
+
+    elif ex == 33:
+
+    	print '''\nExample 33: The occurrence graph with respect to p = 132 only has vertices of degree 0,1,2\n'''
+
+        p = [1,3,2]
+
+        def prop(x):
+        	ocd = occurrence_graph1(x,p).degree_sequence()
+        	for d in ocd:
+        		if d > 2:
+        			return False
+        	return True
+
+        return prop, 0
+
     else:
         return lambda x : False, -1
