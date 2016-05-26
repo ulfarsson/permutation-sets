@@ -1,5 +1,3 @@
-
-
 def occurrence_graph1(w, p, d = 1):
 	'''
 	Given a permutation w and a pattern p we define a graph G = G(w,p) such that

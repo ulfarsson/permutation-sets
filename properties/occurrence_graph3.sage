@@ -1,10 +1,22 @@
-def occurrence_graph3(w, p, d = 1):
-	'''
-	Given a permutation w and a pattern p we define a graph G = G(w,p) such that
-	the vertices of G are occurrences of the pattern p in w. Two vertices are
-	connected by an edge if and only if the corresponding occurrences differ by
-	exactly one point in w, and this point plays the same role in p. Note that
-	this means that 12 and 23 are not connected in 123.
-	'''
-	V = map(tuple, w.pattern_positions(p))
-	return Graph([ V, lambda v, u : sum([v[i] != u[i] for i in range(len(v))]) == d ])
+def in_one(v, u, VV):
+    '''
+    Helper function
+    '''
+    if v == u:
+        return False
+    for big_occ in VV:
+        if Set(v).issubset(Set(big_occ)) and Set(u).issubset(Set(big_occ)):
+            return True
+    return False
+
+
+def occurrence_graph3(w, p, P):
+    '''
+    Given a permutation w and a pattern p we define a graph G = G(w,p) such that
+    the vertices of G are occurrences of the pattern p in w. Two vertices are
+    connected by an edge if and only if the corresponding occurrences exist in
+    a single occurrence of P.
+    '''
+    V  = map(tuple, w.pattern_positions(p))
+    VV = map(tuple, w.pattern_positions(P))
+    return Graph([ V, lambda v, u : in_one(v, u, VV) ])

@@ -49,5 +49,31 @@ def get_example(ex):
         prop = lambda x : avoids_mpats(x,[mp1,mp2])
         return prop, 0
 
+    elif ex == 3:
+
+        mp3 = ([4,3,2,1],[])
+        mp4 = ([4,3,2,1],[(0,4),(1,4),(2,3),(3,3)])
+        mp5 = ([4,3,2,1],[(2,3),(3,3)])
+
+        prop = lambda x : not avoids_mpat(x,mp3) and not avoids_mpat(x,mp5) and avoids_mpat(x,mp4)
+        return prop, 0
+
+    elif ex == 4:
+
+        mp6 = ([3,2,1],[(1,0)])
+        mp7 = ([2,3,1],[(1,0),(3,2)])
+
+        prop = lambda x : avoids_mpats(x,[mp6,mp7])
+        return prop, 0
+
+    elif ex == 5:
+
+        mp6 = ([3,2,1],[(1,0)])
+        mp7 = ([2,3,1],[(1,0),(2,2),(3,2)])
+        mp8 = ([2,3,1],[(1,0),(3,2)])
+
+        prop = lambda x : avoids_mpats(x,[mp6,mp7]) and not avoids_mpat(x,mp8)
+        return prop, 0
+
     else:
         return lambda x : False, -1

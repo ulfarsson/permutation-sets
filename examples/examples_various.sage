@@ -1,3 +1,5 @@
+
+
 load("../pattern-avoidance/mesh_patterns.sage")
 load("../permutation-sets/properties/various.sage")
 load("../permutation-sets/properties/Costa.sage")
@@ -134,6 +136,32 @@ def get_example(ex):
     elif ex == 14:
         print "Costa permutations"
         prop = lambda x : is_Costa(x)
+        return prop, 0
+
+    elif ex == 15:
+        print "Median permutations"
+
+        def gen_median(n):
+            first_el = n//2 + 1
+            perm = [first_el]
+            curr = first_el
+            if n%2 == 0:
+                mult = -1
+            else:
+                mult = 1
+
+            for i in range(1, n):
+                curr = curr + mult*i
+                perm.append(curr)
+                mult = -mult
+
+            return Permutation(perm)
+
+
+        def is_median(x): return x == gen_median(len(x))
+
+
+        prop = lambda x : is_median(x)
         return prop, 0
 
     else:
