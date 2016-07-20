@@ -25,6 +25,10 @@ Example 2: No (3,2)
 Example 3: No (3,3)
 
 ---
+Example 4: Involutions satisfying for all i,
+    1. either i+1 is in the column immediately on the right of the column of i, or
+    2. i+1 is in the first column.
+---
 '''
 
 def get_example(ex):
@@ -42,6 +46,38 @@ def get_example(ex):
 
     elif ex == 3:
         print "No (3,3)-shape in the tableau"
+        prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,3])
+        return prop, 0
+
+    elif ex == 4:
+
+        def bona_condition(t,n):
+            for i in range(1,n):
+                for L in t:
+                    if i+1 in L:
+                        ind2 = L.index(i+1)
+                        break
+                if ind2 == 0:
+                    continue
+                for L in t:
+                    if i in L:
+                        ind1 = L.index(i)
+                        break
+                if ind2 == ind1 + 1:
+                    continue
+                else:
+                    return False
+
+            return True
+
+        def invos_bona_condition(perm):
+            tabs = RSK(perm)
+            if tabs[0] == tabs[1] and bona_condition(tabs[0],len(perm)):
+                return True
+            else:
+                return False
+
+        print "Involutions satisfying a certain condition"
         prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,3])
         return prop, 0
 
