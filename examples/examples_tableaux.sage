@@ -78,7 +78,7 @@ def get_example(ex):
                 return False
 
         print "Involutions satisfying a certain condition"
-        prop = lambda x : not tableau_contains_shape(x.left_tableau(), [3,3])
+        prop = lambda x : invos_bona_condition(x)
         return prop, 0
 
     else:
