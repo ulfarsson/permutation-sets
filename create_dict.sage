@@ -104,8 +104,10 @@ def perms_sat_prop_w_complement_different_sizes(Ng, Nb, prop, verb = False):
 
 '''
 --------------------------------------------------------------------------------
-Next we have functions that create dictionaries based on an image of a map
-Sn -> Sn
+Next we have functions that create dictionaries D and E based on an image of a
+map Sn -> Sn. The value of key n in D is the list of permutations of length n
+in the image of Sn. Similarly, the value of key n in E is the list of
+permutations of length n NOT in the image of Sn.
 --------------------------------------------------------------------------------
 '''
 
@@ -114,13 +116,9 @@ def perms_in_image(Ng, func, verb=False):
     D, E = {}, {}
 
     for n in range(1, Ng+1):
-        Dn, En = [], []
         L = sorted(list(Set(map(lambda x : Permutation(func(x)).rank(), Permutations(n)))))
-        s = 0
-        for ell in L:
-            Dn.append(Permutations(n)[ell])
-            En + [Permutations(n)[i] for i in range(s,ell)]
-        D[n], E[n] = Dn, En
+        D[n] = [Permutations(n)[ell] for ell in L]
+        E[n] = [Permutations(n)[ell] for ell in range(factorial(n)) if ell not in L]
 
         if verb:
             print 'Done with length %s' %n
@@ -129,40 +127,21 @@ def perms_in_image(Ng, func, verb=False):
 
 def perms_in_image_different_sizes(Ng, Nb, func, verb=False):
 
-    D, E = {}, {}
+    N_low, N_high = min(Ng, Nb), max(Ng, Nb)
 
-    # Putting into both dictionaries
-    for n in range(1, min(Ng, Nb)+1):
-        Dn, En = [], []
+    D, E = perms_in_image(N_low, func, verb=verb)
+
+    if N_low == N_high:
+        return D, E
+
+    # Filling in the rest of D or E
+    for n in range(N_low + 1, N_high+1):
         L = sorted(list(Set(map(lambda x : Permutation(func(x)).rank(), Permutations(n)))))
-        s = 0
-        for ell in L:
-            Dn.append(Permutations(n)[ell])
-            En + [Permutations(n)[i] for i in range(s,ell)]
-        D[n], E[n] = Dn, En
 
-        if verb:
-            print 'Done with length %s' %n
-
-    # Note that only one of the for-loops below will be non-empty
-
-    # Filling in the rest of D
-    for n in range(Nb+1, Ng+1):
-
-        D[n] = list(Set(map(lambda x : Permutation(func(x)), Permutations(n))))
-
-        if verb:
-            print 'Done with length %s' %n
-
-    # Filling in the rest of E
-    for n in range(Ng+1, Nb+1):
-
-        En = []
-        L = sorted(list(Set(map(lambda x : Permutation(func(x)).rank(), Permutations(n)))))
-        s = 0
-        for ell in L:
-            En + [Permutations(n)[i] for i in range(s,ell)]
-        E[n] = En
+        if Ng > Nb:
+            D[n] = [Permutations(n)[ell] for ell in L]
+        elif Ng < Nb:
+            E[n] = [Permutations(n)[ell] for ell in range(factorial(n)) if ell not in L]
 
         if verb:
             print 'Done with length %s' %n
