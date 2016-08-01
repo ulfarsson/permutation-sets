@@ -10,7 +10,7 @@ def create_example(E, ex, Ng, Nb=-1, report=True, cpus=1):
     E      : The example file, e.g., 'mesh' or 'groups'
     ex     : The example number, 1, 2, ...
     Ng     : The length of the longest permutations to load
-    Ng     : The length of the longest permutations in the complement to load
+    Nb     : The length of the longest permutations in the complement to load
     report : Set to True to get status messages
     cpus   : The number of cores to use
              Set to 0 if you want Sage to determine the number of available cores
